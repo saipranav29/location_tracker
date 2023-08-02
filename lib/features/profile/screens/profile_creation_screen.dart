@@ -209,7 +209,7 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
-                          "${widget.lat} ${widget.latSign}",
+                          "${widget.latSign} ${widget.lat}",
                           style:     Theme.of(context)
                         .textTheme
                         .labelLarge
@@ -219,7 +219,7 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                           width: customSizeController.getWidth(12),
                         ),
                         Text(
-                          "${widget.lng} ${widget.lngSign}",
+                          "${widget.lngSign} ${widget.lng} ",
                             style: Theme.of(context)
                                 .textTheme
                                 .labelLarge

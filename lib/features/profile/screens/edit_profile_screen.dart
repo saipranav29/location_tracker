@@ -220,7 +220,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
-                            "${widget.lpObject.lat} ${widget.lpObject.latSign}",
+                            "${widget.lpObject.latSign} ${widget.lpObject.lat}",
                             style: Theme.of(context)
                                 .textTheme
                                 .labelLarge
@@ -230,7 +230,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           width: customSizeController.getWidth(12),
                         ),
                         Text(
-                            "${widget.lpObject.lng} ${widget.lpObject.lngSign}",
+                            "${widget.lpObject.lngSign} ${widget.lpObject.lng}",
                             style: Theme.of(context)
                                 .textTheme
                                 .labelLarge

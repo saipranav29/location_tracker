@@ -191,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           left:
                                               customSizeController.getWidth(8)),
                                       child: Text(
-                                        "${lp.lat.toString()} ${lp.latSign}",
+                                        "${lp.latSign} ${lp.lat.toString()}",
                                         style: Theme.of(context)
                                             .textTheme
                                             .labelLarge
@@ -230,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           left:
                                               customSizeController.getWidth(8)),
                                       child: Text(
-                                        "${lp.lng.toString()} ${lp.lngSign}",
+                                        "${lp.lngSign} ${lp.lng.toString()}",
                                         style: Theme.of(context)
                                             .textTheme
                                             .labelLarge

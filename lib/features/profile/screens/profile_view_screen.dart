@@ -92,7 +92,7 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
                             top: customSizeController.getHeight(4),
                             left: customSizeController.getWidth(8)),
                         child: Text(
-                          "${widget.lpObject.lat.toString()} ${widget.lpObject.latSign}",
+                          "${widget.lpObject.latSign} ${widget.lpObject.lat.toString()}",
                           style: TextStyle(
                               fontSize: widget.lpObject.labelFontSize,
                               fontWeight: FontWeight.bold,
@@ -125,7 +125,7 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
                             top: customSizeController.getHeight(4),
                             left: customSizeController.getWidth(8)),
                         child: Text(
-                          "${widget.lpObject.lng.toString()} ${widget.lpObject.lngSign}",
+                          "${widget.lpObject.lngSign} ${widget.lpObject.lng.toString()}",
                           style: TextStyle(
                               fontSize: widget.lpObject.labelFontSize,
                               fontWeight: FontWeight.bold,

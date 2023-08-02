@@ -17,21 +17,21 @@ class LocationScreen extends StatefulWidget {
 class _LocationScreenState extends State<LocationScreen> {
   List<DropdownMenuItem<String>> signs = [
     const DropdownMenuItem(
-      value: "N",
+      value: "+",
       child: Text(
-        "N",
+        "+",
         style: TextStyle(fontSize: 16),
       ),
     ),
     const DropdownMenuItem(
-        value: "S",
+        value: "-",
         child: Text(
-          "S",
+          "-",
           style: TextStyle(fontSize: 16),
         )),
   ];
-  String selectedLatSign = "N";
-  String selectedLngSign = "S";
+  String selectedLatSign = "+";
+  String selectedLngSign = "-";
   TextEditingController latitude = TextEditingController();
   TextEditingController longitude = TextEditingController();
   dynamic latitudeErrorText = "";
