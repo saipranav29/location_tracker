@@ -1,7 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:klimbb/app_config.dart';
@@ -9,17 +7,48 @@ import 'package:klimbb/constants/api_constants.dart';
 import 'package:klimbb/constants/custom_size.dart';
 import 'package:klimbb/hive_models/boxes.dart';
 import 'package:klimbb/hive_models/location_profile.dart';
-import 'package:klimbb/l10n/l10n.dart';
 import 'package:klimbb/utils/router.dart';
+import 'package:provider/provider.dart';
 
-@pragma('vm:entry-point')
+
+
+class DynamicTheme with ChangeNotifier {
+  dynamic _primaryColor = Colors.white;
+  double headLineFontSize = 24.0;
+  double labelFontSize = 18.0;
+  double bodyFontSize = 16.0;
+
+  ThemeData get currentTheme => ThemeData(primaryColor: _primaryColor,textTheme:  TextTheme(
+    headlineLarge: TextStyle(
+      fontSize: headLineFontSize,
+      fontWeight: FontWeight.normal
+    ),
+    labelLarge: TextStyle(
+        fontSize: labelFontSize,
+        fontWeight: FontWeight.normal
+    ),
+    bodyLarge: TextStyle(
+        fontSize: bodyFontSize,
+        fontWeight: FontWeight.normal
+    ),
+  ));
+
+  void updatePrimaryColor(Color newColor,double headline,double label,double body) {
+    _primaryColor = newColor;
+    headLineFontSize = headline;
+    labelFontSize = label;
+    bodyFontSize = body;
+    notifyListeners();
+  }
+}
+
 mainCommon() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter();
-  Hive.registerAdapter(LocationProfileAdapter(),override: false);
-  locationProfileBox = await Hive.openBox<LocationProfile>(ApiConstants.locationProfileBox);
-
+  Hive.registerAdapter(LocationProfileAdapter(), override: false);
+  locationProfileBox =
+      await Hive.openBox<LocationProfile>(ApiConstants.locationProfileBox);
 }
 
 class MyApp extends StatelessWidget {
@@ -38,18 +67,12 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       getPages: Routes.routes,
-      theme: ThemeData(
-          colorScheme: const ColorScheme.light(),
-          fontFamily: 'Rubik',
-          textTheme: const TextTheme()),
+      theme: Provider.of<DynamicTheme>(context).currentTheme,
       initialRoute: '/home',
-      localizationsDelegates:  const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: L10n.all,
+
     );
   }
 }
+
+
+

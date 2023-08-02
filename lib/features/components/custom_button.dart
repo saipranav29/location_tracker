@@ -44,7 +44,7 @@ class CustomFlatButton extends StatelessWidget {
         onPressed: onPressed ?? () {},
         child: Text(
           labelText ?? " ",
-          style: Theme.of(context).textTheme.button1,
+          style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: textColor),
         ),
       ),
     );

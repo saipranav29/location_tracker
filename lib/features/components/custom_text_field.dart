@@ -10,6 +10,8 @@ Widget textFieldComponent(
     String? hintText,
     int maxLines = 1,
     int? minLines,
+      required Color fillColor,
+      required Color hintTextColor,
     required BuildContext context,
     TextInputType? keyboardType,
     bool readOnly = false,
@@ -21,9 +23,10 @@ Widget textFieldComponent(
     Function(String)? onFieldSubmitted,
     bool isCollapsed = false,
     bool obscureText = false,
-    int errorMaxLines = 1}) {
+    int errorMaxLines = 1,
+    }) {
   return TextFormField(
-    style: const TextStyle(color: Colors.black),
+    style:  TextStyle(color: hintTextColor),
     readOnly: readOnly,
     textAlign: textAlign,
     textInputAction: textInputAction,
@@ -40,7 +43,7 @@ Widget textFieldComponent(
     decoration: InputDecoration(
         filled: true,
         suffixIcon: suffixIcon,
-        fillColor: Colors.white,
+        fillColor: fillColor,
         labelStyle: const TextStyle(color: Colors.black),
         border: OutlineInputBorder(
           borderRadius:
@@ -65,10 +68,10 @@ Widget textFieldComponent(
           horizontal: 16.0 + 1, // Add error border width to horizontal padding
         ),
         hintText: hintText,
-        hintStyle: const TextStyle(color: Colors.black),
+        hintStyle:  TextStyle(color: hintTextColor),
         errorText: errorText,
         errorStyle: Theme.of(context).textTheme.body1.copyWith(
-              color: Theme.of(context).colorScheme.error,
+              color: fillColor
             ),
         errorMaxLines: errorMaxLines,
         errorBorder: OutlineInputBorder(

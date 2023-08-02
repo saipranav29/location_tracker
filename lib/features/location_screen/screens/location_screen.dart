@@ -72,6 +72,14 @@ class _LocationScreenState extends State<LocationScreen> {
     });
   }
 
+  Color invertColor(Color color) {
+    int invertedRed = 255 - color.red;
+    int invertedGreen = 255 - color.green;
+    int invertedBlue = 255 - color.blue;
+    return Color.fromARGB(
+        color.alpha, invertedRed, invertedGreen, invertedBlue);
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -81,20 +89,20 @@ class _LocationScreenState extends State<LocationScreen> {
     final HomeScreenController homeScreenController =
         Get.find<HomeScreenController>();
     return Scaffold(
-      backgroundColor: Colors.grey[400],
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: const Text(
+        title:  Text(
           "Add Location Ordinates",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-          ),
+          style: Theme.of(context)
+              .textTheme
+              .headlineLarge
+              ?.copyWith(color: Theme.of(context).primaryColor)
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: invertColor(Theme.of(context).primaryColor),
       ),
       body: Container(
-        color: Colors.grey[300],
+        color: Theme.of(context).primaryColor,
         height: screenHeight,
         width: screenWidth,
         child: ListView(
@@ -146,10 +154,14 @@ class _LocationScreenState extends State<LocationScreen> {
                                 color:
                                     Theme.of(context).colorScheme.transparent),
                           ),
+
                           filled: true,
-                          fillColor: Colors.white,
-                          focusColor: Colors.white,
-                          hoverColor: Colors.white,
+                          fillColor:invertColor(Theme.of(context).primaryColor),
+                          focusColor: invertColor(Theme.of(context).primaryColor),
+                          hoverColor: invertColor(Theme.of(context).primaryColor),
+                        ),
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
                         ),
                         itemHeight: customSizeController.getHeight(40),
                         iconSize: 24,
@@ -170,6 +182,8 @@ class _LocationScreenState extends State<LocationScreen> {
                     width: customSizeController.getWidth(280),
                     child: textFieldComponent(
                         context: context,
+                        fillColor: invertColor(Theme.of(context).primaryColor),
+                        hintTextColor: Theme.of(context).primaryColor,
                         onChanged: validateLatitude,
                         controller: latitude,
                         hintText: "Enter Latitude",
@@ -227,9 +241,12 @@ class _LocationScreenState extends State<LocationScreen> {
                                     Theme.of(context).colorScheme.transparent),
                           ),
                           filled: true,
-                          fillColor: Colors.white,
-                          focusColor: Colors.white,
-                          hoverColor: Colors.white,
+                          fillColor:invertColor(Theme.of(context).primaryColor),
+                          focusColor: invertColor(Theme.of(context).primaryColor),
+                          hoverColor: invertColor(Theme.of(context).primaryColor),
+                        ),
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
                         ),
                         itemHeight: customSizeController.getHeight(40),
                         iconSize: 24,
@@ -251,6 +268,8 @@ class _LocationScreenState extends State<LocationScreen> {
                     child: textFieldComponent(
                       context: context,
                       onChanged: validateLongitude,
+                      fillColor: invertColor(Theme.of(context).primaryColor),
+                      hintTextColor: Theme.of(context).primaryColor,
                       controller: longitude,
                       hintText: "Enter Longitude",
                       keyboardType: TextInputType.number,
@@ -267,8 +286,8 @@ class _LocationScreenState extends State<LocationScreen> {
                 height: 50,
                 width: 204,
                 radius: 33,
-                color: Colors.black,
-                textColor: Colors.white,
+                color: invertColor(Theme.of(context).primaryColor,),
+                textColor: Theme.of(context).primaryColor,
                 labelText: "Submit",
                 borderColor: Colors.black,
                 onPressed: () {
@@ -278,14 +297,21 @@ class _LocationScreenState extends State<LocationScreen> {
                          latitude.text.toString()+selectedLatSign.toString()+longitude.text.toString()+selectedLngSign.toString());
                     if (homeScreenController.isRecordExits.value) {
                       Get.defaultDialog(
+                        backgroundColor: Theme.of(context).primaryColor,
+                        titleStyle: TextStyle(
+                          color: invertColor( Theme.of(context).primaryColor,)
+                        ),
                         title: 'Profile Already Exists',
                         contentPadding: EdgeInsets.only(
                             left: customSizeController.getWidth(4),
                             right: customSizeController.getWidth(4)),
-                        buttonColor: Colors.black,
-                        confirmTextColor: Colors.white,
+                        buttonColor: invertColor(Theme.of(context).primaryColor),
+                        confirmTextColor: Theme.of(context).primaryColor,
                         middleText:
                             'The entered latitudes and longitudes are already associated with other profile.',
+                        middleTextStyle: TextStyle(
+                            color: invertColor( Theme.of(context).primaryColor,)
+                        ),
                         textConfirm: 'Ok',
                         onConfirm: () {
                           Get.back(); // Close the dialog when the button is pressed
@@ -293,13 +319,20 @@ class _LocationScreenState extends State<LocationScreen> {
                       );
                     } else {
                       Get.defaultDialog(
+                        backgroundColor: Theme.of(context).primaryColor,
+                        titleStyle: TextStyle(
+                            color: invertColor( Theme.of(context).primaryColor,)
+                        ),
                         title: 'Profile Creation',
                         contentPadding: EdgeInsets.only(
                             left: customSizeController.getWidth(4),
                             right: customSizeController.getWidth(4)),
-                        buttonColor: Colors.black,
-                        confirmTextColor: Colors.white,
+                        buttonColor: invertColor(Theme.of(context).primaryColor),
+                        confirmTextColor: Theme.of(context).primaryColor,
                         middleText: "Create profile for this co-ordinates.",
+                        middleTextStyle: TextStyle(
+                            color: invertColor( Theme.of(context).primaryColor,)
+                        ),
                         textConfirm: 'Create Profile',
                         onConfirm: () {
                           Get.to(() => ProfileCreationScreen(

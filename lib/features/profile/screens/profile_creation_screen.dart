@@ -124,6 +124,14 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
     });
   }
 
+  Color invertColor(Color color) {
+    int invertedRed = 255 - color.red;
+    int invertedGreen = 255 - color.green;
+    int invertedBlue = 255 - color.blue;
+    return Color.fromARGB(
+        color.alpha, invertedRed, invertedGreen, invertedBlue);
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -133,22 +141,22 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
     final HomeScreenController homeScreenController =
         Get.find<HomeScreenController>();
     return Scaffold(
-      backgroundColor: Colors.grey[400],
+      backgroundColor:Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: const Text(
+        title:  Text(
           "Create Profile",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-          ),
+          style:Theme.of(context)
+              .textTheme
+              .headlineLarge
+              ?.copyWith(color: Theme.of(context).primaryColor)
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: invertColor(Theme.of(context).primaryColor),
       ),
       body: Container(
         height: screenHeight,
         width: screenWidth,
-        color: Colors.grey[400],
+        color: Theme.of(context).primaryColor,
         child: ListView(
           physics: const BouncingScrollPhysics(),
           children: [
@@ -162,7 +170,8 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                   borderRadius: const BorderRadius.all(Radius.circular(
                           5.0) //                 <--- border radius here
                       ),
-                  color: Colors.white),
+                color: invertColor(Theme.of(context).primaryColor)
+                  ),
               child: Column(
                 children: [
                   Container(
@@ -172,22 +181,22 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        const Text(
+                         Text(
                           "Latitude",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              fontSize: 16),
+                             style: Theme.of(context)
+                                 .textTheme
+                                 .labelLarge
+                                 ?.copyWith(color: Theme.of(context).primaryColor,fontWeight: FontWeight.bold)
                         ),
                         SizedBox(
                           width: customSizeController.getWidth(12),
                         ),
-                        const Text(
+                         Text(
                           "Longitude",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              fontSize: 16),
+                             style: Theme.of(context)
+                                 .textTheme
+                                 .labelLarge
+                                 ?.copyWith(color: Theme.of(context).primaryColor,fontWeight: FontWeight.bold)
                         )
                       ],
                     ),
@@ -201,20 +210,20 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                       children: [
                         Text(
                           "${widget.lat} ${widget.latSign}",
-                          style: const TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black,
-                              fontSize: 16),
+                          style:     Theme.of(context)
+                        .textTheme
+                        .labelLarge
+                        ?.copyWith(color: Theme.of(context).primaryColor)
                         ),
                         SizedBox(
                           width: customSizeController.getWidth(12),
                         ),
                         Text(
                           "${widget.lng} ${widget.lngSign}",
-                          style: const TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black,
-                              fontSize: 16),
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(color: Theme.of(context).primaryColor)
                         )
                       ],
                     ),
@@ -226,12 +235,12 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
               margin: EdgeInsets.only(
                   top: customSizeController.getHeight(8),
                   left: customSizeController.getWidth(24)),
-              child: const Text(
+              child:  Text(
                 "Select Font Size",
-                style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                    fontSize: 18),
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge
+                      ?.copyWith(color: invertColor(Theme.of(context).primaryColor),fontWeight: FontWeight.bold)
               ),
             ),
             SizedBox(
@@ -243,12 +252,12 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                         top: customSizeController.getHeight(8),
                         left: customSizeController.getWidth(24)),
                     width: screenWidth * 0.25,
-                    child: const Text(
+                    child:  Text(
                       "Headline",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          fontSize: 16),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge
+                            ?.copyWith(color: invertColor(Theme.of(context).primaryColor),fontWeight: FontWeight.bold)
                     ),
                   ),
                   Container(
@@ -256,12 +265,12 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                         top: customSizeController.getHeight(8),
                         left: customSizeController.getWidth(24)),
                     width: screenWidth * 0.25,
-                    child: const Text(
+                    child:  Text(
                       "Label",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          fontSize: 16),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge
+                            ?.copyWith(color: invertColor(Theme.of(context).primaryColor),fontWeight: FontWeight.bold)
                     ),
                   ),
                   Container(
@@ -269,12 +278,12 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                         top: customSizeController.getHeight(8),
                         left: customSizeController.getWidth(24)),
                     width: screenWidth * 0.25,
-                    child: const Text(
+                    child:  Text(
                       "Body",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          fontSize: 16),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge
+                            ?.copyWith(color: invertColor(Theme.of(context).primaryColor),fontWeight: FontWeight.bold)
                     ),
                   ),
                 ],
@@ -325,9 +334,12 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                                     Theme.of(context).colorScheme.transparent),
                           ),
                           filled: true,
-                          fillColor: Colors.white,
-                          focusColor: Colors.white,
-                          hoverColor: Colors.white,
+                          fillColor:invertColor(Theme.of(context).primaryColor),
+                          focusColor: invertColor(Theme.of(context).primaryColor),
+                          hoverColor: invertColor(Theme.of(context).primaryColor),
+                        ),
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
                         ),
                         itemHeight: customSizeController.getHeight(40),
                         iconSize: 24,
@@ -384,9 +396,12 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                                     Theme.of(context).colorScheme.transparent),
                           ),
                           filled: true,
-                          fillColor: Colors.white,
-                          focusColor: Colors.white,
-                          hoverColor: Colors.white,
+                          fillColor:invertColor(Theme.of(context).primaryColor),
+                          focusColor: invertColor(Theme.of(context).primaryColor),
+                          hoverColor: invertColor(Theme.of(context).primaryColor),
+                        ),
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
                         ),
                         itemHeight: customSizeController.getHeight(40),
                         iconSize: 24,
@@ -443,9 +458,12 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                                     Theme.of(context).colorScheme.transparent),
                           ),
                           filled: true,
-                          fillColor: Colors.white,
-                          focusColor: Colors.white,
-                          hoverColor: Colors.white,
+                          fillColor:invertColor(Theme.of(context).primaryColor),
+                          focusColor: invertColor(Theme.of(context).primaryColor),
+                          hoverColor: invertColor(Theme.of(context).primaryColor),
+                        ),
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
                         ),
                         itemHeight: customSizeController.getHeight(40),
                         iconSize: 24,
@@ -468,12 +486,12 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
               margin: EdgeInsets.only(
                   top: customSizeController.getHeight(24),
                   left: customSizeController.getWidth(24)),
-              child: const Text(
+              child:  Text(
                 "Pick a Color",
-                style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                    fontSize: 18),
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge
+                      ?.copyWith(color: invertColor(Theme.of(context).primaryColor),fontWeight: FontWeight.bold)
               ),
             ),
             Container(
@@ -500,8 +518,8 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                     height: 50,
                     width: 204,
                     radius: 33,
-                    color: Colors.black,
-                    textColor: Colors.white,
+                    color: invertColor(Theme.of(context).primaryColor,),
+                    textColor: Theme.of(context).primaryColor,
                     labelText: "Create Profile",
                     borderColor: Colors.black,
                     onPressed: () {

@@ -13,6 +13,9 @@ extension TextThemeExt on TextTheme {
   TextStyle get body1 =>
       const TextStyle(fontSize: 10, fontWeight: FontWeight.w400);
 
+  void setHeadlineSize(){
+
+  }
 
 
 
