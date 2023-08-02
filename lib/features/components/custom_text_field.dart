@@ -71,7 +71,7 @@ Widget textFieldComponent(
         hintStyle:  TextStyle(color: hintTextColor),
         errorText: errorText,
         errorStyle: Theme.of(context).textTheme.body1.copyWith(
-              color: Theme.of(context).colorScheme.error,
+              color: fillColor
             ),
         errorMaxLines: errorMaxLines,
         errorBorder: OutlineInputBorder(

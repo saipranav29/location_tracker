@@ -309,6 +309,9 @@ class _LocationScreenState extends State<LocationScreen> {
                         confirmTextColor: Theme.of(context).primaryColor,
                         middleText:
                             'The entered latitudes and longitudes are already associated with other profile.',
+                        middleTextStyle: TextStyle(
+                            color: invertColor( Theme.of(context).primaryColor,)
+                        ),
                         textConfirm: 'Ok',
                         onConfirm: () {
                           Get.back(); // Close the dialog when the button is pressed
@@ -327,6 +330,9 @@ class _LocationScreenState extends State<LocationScreen> {
                         buttonColor: invertColor(Theme.of(context).primaryColor),
                         confirmTextColor: Theme.of(context).primaryColor,
                         middleText: "Create profile for this co-ordinates.",
+                        middleTextStyle: TextStyle(
+                            color: invertColor( Theme.of(context).primaryColor,)
+                        ),
                         textConfirm: 'Create Profile',
                         onConfirm: () {
                           Get.to(() => ProfileCreationScreen(

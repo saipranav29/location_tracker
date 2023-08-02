@@ -14,9 +14,9 @@ import 'package:provider/provider.dart';
 
 class DynamicTheme with ChangeNotifier {
   dynamic _primaryColor = Colors.white;
-  double headLineFontSize = 14.0;
-  double labelFontSize = 12.0;
-  double bodyFontSize = 10.0;
+  double headLineFontSize = 24.0;
+  double labelFontSize = 18.0;
+  double bodyFontSize = 16.0;
 
   ThemeData get currentTheme => ThemeData(primaryColor: _primaryColor,textTheme:  TextTheme(
     headlineLarge: TextStyle(

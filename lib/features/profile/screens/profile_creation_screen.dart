@@ -183,20 +183,20 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                       children: [
                          Text(
                           "Latitude",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 16),
+                             style: Theme.of(context)
+                                 .textTheme
+                                 .labelLarge
+                                 ?.copyWith(color: Theme.of(context).primaryColor,fontWeight: FontWeight.bold)
                         ),
                         SizedBox(
                           width: customSizeController.getWidth(12),
                         ),
                          Text(
                           "Longitude",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 16),
+                             style: Theme.of(context)
+                                 .textTheme
+                                 .labelLarge
+                                 ?.copyWith(color: Theme.of(context).primaryColor,fontWeight: FontWeight.bold)
                         )
                       ],
                     ),
@@ -210,20 +210,20 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                       children: [
                         Text(
                           "${widget.lat} ${widget.latSign}",
-                          style:  TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 16),
+                          style:     Theme.of(context)
+                        .textTheme
+                        .labelLarge
+                        ?.copyWith(color: Theme.of(context).primaryColor)
                         ),
                         SizedBox(
                           width: customSizeController.getWidth(12),
                         ),
                         Text(
                           "${widget.lng} ${widget.lngSign}",
-                          style:  TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color:Theme.of(context).primaryColor,
-                              fontSize: 16),
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(color: Theme.of(context).primaryColor)
                         )
                       ],
                     ),
@@ -237,10 +237,10 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                   left: customSizeController.getWidth(24)),
               child:  Text(
                 "Select Font Size",
-                style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: invertColor(Theme.of(context).primaryColor,),
-                    fontSize: 18),
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge
+                      ?.copyWith(color: invertColor(Theme.of(context).primaryColor),fontWeight: FontWeight.bold)
               ),
             ),
             SizedBox(
@@ -254,10 +254,10 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                     width: screenWidth * 0.25,
                     child:  Text(
                       "Headline",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: invertColor(Theme.of(context).primaryColor,),
-                          fontSize: 16),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge
+                            ?.copyWith(color: invertColor(Theme.of(context).primaryColor),fontWeight: FontWeight.bold)
                     ),
                   ),
                   Container(
@@ -267,10 +267,10 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                     width: screenWidth * 0.25,
                     child:  Text(
                       "Label",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color:invertColor(Theme.of(context).primaryColor,),
-                          fontSize: 16),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge
+                            ?.copyWith(color: invertColor(Theme.of(context).primaryColor),fontWeight: FontWeight.bold)
                     ),
                   ),
                   Container(
@@ -280,10 +280,10 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                     width: screenWidth * 0.25,
                     child:  Text(
                       "Body",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color:invertColor(Theme.of(context).primaryColor,),
-                          fontSize: 16),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge
+                            ?.copyWith(color: invertColor(Theme.of(context).primaryColor),fontWeight: FontWeight.bold)
                     ),
                   ),
                 ],
@@ -488,10 +488,10 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                   left: customSizeController.getWidth(24)),
               child:  Text(
                 "Pick a Color",
-                style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: invertColor(Theme.of(context).primaryColor),
-                    fontSize: 18),
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge
+                      ?.copyWith(color: invertColor(Theme.of(context).primaryColor),fontWeight: FontWeight.bold)
               ),
             ),
             Container(

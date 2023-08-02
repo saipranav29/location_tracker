@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 100,
                   radius: 33,
                   color: Theme.of(context).primaryColor,
-                  textColor: invertColor(Theme.of(context).primaryColor),
+                  textColor: invertColor(Theme.of(context).primaryColor,),
                   labelText: "Add",
                   borderColor: Colors.black,
                   onPressed: () {
@@ -83,12 +83,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               right: customSizeController.getWidth(24)),
                           child: Text(
                             "Please create Location Profile manually.",
-                            style: TextStyle(
-                              fontSize: 18,
-                              color:
-                                  invertColor(Theme.of(context).primaryColor),
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineLarge
+                                ?.copyWith(
+                                    color: invertColor(
+                                        Theme.of(context).primaryColor)),
                             textAlign: TextAlign.justify,
                           ),
                         ),
@@ -147,7 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Radius.circular(
                                         20.0) //                 <--- border radius here
                                     ),
-                                color: invertColor(Theme.of(context).primaryColor)),
+                                color: invertColor(
+                                    Theme.of(context).primaryColor)),
                             height: customSizeController.getHeight(160),
                             child: Column(
                               children: [
@@ -157,10 +158,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       top: customSizeController.getHeight(4)),
                                   child: Text(
                                     "PROFILE ${index + 1}",
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).primaryColor),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineLarge
+                                        ?.copyWith(
+                                        color:
+                                            Theme.of(context).primaryColor),
                                   ),
                                 ),
                                 Row(
@@ -168,29 +171,33 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Container(
                                       margin: EdgeInsets.only(
                                           top:
-                                              customSizeController.getHeight(4),
+                                              customSizeController.getHeight(12),
                                           left:
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "Latitude: ",
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.normal,
-                                            color: Theme.of(context).primaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge
+                                            ?.copyWith(
+                                            color:
+                                            Theme.of(context).primaryColor),
                                       ),
                                     ),
                                     Container(
                                       margin: EdgeInsets.only(
                                           top:
-                                              customSizeController.getHeight(4),
+                                          customSizeController.getHeight(12),
                                           left:
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "${lp.lat.toString()} ${lp.latSign}",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            color:Theme.of(context).primaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge
+                                            ?.copyWith(
+                                            color:
+                                            Theme.of(context).primaryColor),
                                       ),
                                     ),
                                   ],
@@ -208,10 +215,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "Longitude: ",
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.normal,
-                                            color: Theme.of(context).primaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge
+                                            ?.copyWith(
+                                            color:
+                                            Theme.of(context).primaryColor),
                                       ),
                                     ),
                                     Container(
@@ -222,10 +231,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "${lp.lng.toString()} ${lp.lngSign}",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            color:Theme.of(context).primaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge
+                                            ?.copyWith(
+                                            color:
+                                            Theme.of(context).primaryColor),
                                       ),
                                     ),
                                   ],
@@ -240,10 +251,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "Headline Font Size: ",
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.normal,
-                                            color:Theme.of(context).primaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge
+                                            ?.copyWith(
+                                            color:
+                                            Theme.of(context).primaryColor),
                                       ),
                                     ),
                                     Container(
@@ -254,10 +267,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "${lp.headlineFontSize}",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            color: Theme.of(context).primaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge
+                                            ?.copyWith(
+                                            color:
+                                            Theme.of(context).primaryColor),
                                       ),
                                     ),
                                   ],
@@ -272,10 +287,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "Label Font Size: ",
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.normal,
-                                            color:Theme.of(context).primaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge
+                                            ?.copyWith(
+                                            color:
+                                            Theme.of(context).primaryColor),
                                       ),
                                     ),
                                     Container(
@@ -286,10 +303,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "${lp.labelFontSize}",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            color: Theme.of(context).primaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge
+                                            ?.copyWith(
+                                            color:
+                                            Theme.of(context).primaryColor),
                                       ),
                                     ),
                                   ],
@@ -304,10 +323,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "Body Font Size: ",
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.normal,
-                                            color: Theme.of(context).primaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge
+                                            ?.copyWith(
+                                            color:
+                                            Theme.of(context).primaryColor),
                                       ),
                                     ),
                                     Container(
@@ -318,10 +339,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "${lp.bodyFontSize}",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            color: Theme.of(context).primaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge
+                                            ?.copyWith(
+                                            color:
+                                            Theme.of(context).primaryColor),
                                       ),
                                     ),
                                   ],
@@ -336,10 +359,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "Theme Color: ",
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.normal,
-                                            color:Theme.of(context).primaryColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge
+                                            ?.copyWith(
+                                            color:
+                                            Theme.of(context).primaryColor),
                                       ),
                                     ),
                                     Container(
@@ -350,10 +375,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               customSizeController.getWidth(8)),
                                       child: Text(
                                         "${convertedColor.value}",
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            color: convertedColor),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge
+                                            ?.copyWith(
+                                            color:
+                                            convertedColor),
                                       ),
                                     ),
                                   ],

@@ -17,7 +17,12 @@ class EditProfileScreen extends StatefulWidget {
   final int documentIndex;
   final String appBarTitle;
 
-  const EditProfileScreen({Key? key, required this.lpObject, required this.appBarTitle, required this.documentIndex}) : super(key: key);
+  const EditProfileScreen(
+      {Key? key,
+      required this.lpObject,
+      required this.appBarTitle,
+      required this.documentIndex})
+      : super(key: key);
 
   @override
   State<EditProfileScreen> createState() => _EditProfileScreenState();
@@ -103,11 +108,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           "28",
           style: TextStyle(fontSize: 24),
         )),
-
   ];
   String selectedHeadlineFontSize = "8";
   String selectedLabelFontSize = "9";
-  String selectedBodyFontSize ="10";
+  String selectedBodyFontSize = "10";
   Color selectedColor = Colors.blue; // Default color value
   Color currentColor = Colors.blue; // Default color value
 
@@ -119,6 +123,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       selectedColor = color;
     });
   }
+
   Color invertColor(Color color) {
     int invertedRed = 255 - color.red;
     int invertedGreen = 255 - color.green;
@@ -127,20 +132,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         color.alpha, invertedRed, invertedGreen, invertedBlue);
   }
 
-
   @override
   void initState() {
     selectedHeadlineFontSize = widget.lpObject.headlineFontSize.toString();
     selectedLabelFontSize = widget.lpObject.labelFontSize.toString();
     selectedBodyFontSize = widget.lpObject.bodyFontSize.toString();
     String mainColor =
-    widget.lpObject.color.split('(0x')[1].split(')')[0]; // kind of hacky..
+        widget.lpObject.color.split('(0x')[1].split(')')[0]; // kind of hacky..
     int value = int.parse(mainColor, radix: 16);
     currentColor = Color(value);
 
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -152,15 +155,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final HomeScreenController homeScreenController =
         Get.find<HomeScreenController>();
     return Scaffold(
-      backgroundColor:Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title:  Text(
-            "Edit Profile",
-            style:Theme.of(context)
+        title: Text("Edit Profile",
+            style: Theme.of(context)
                 .textTheme
                 .headlineLarge
-                ?.copyWith(color: Theme.of(context).primaryColor)
-        ),
+                ?.copyWith(color: Theme.of(context).primaryColor)),
         centerTitle: true,
         backgroundColor: invertColor(Theme.of(context).primaryColor),
       ),
@@ -179,10 +180,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               decoration: BoxDecoration(
                   border: Border.all(width: 1.0),
                   borderRadius: const BorderRadius.all(Radius.circular(
-                      5.0) //                 <--- border radius here
-                  ),
-                  color: invertColor(Theme.of(context).primaryColor)
-              ),
+                          5.0) //                 <--- border radius here
+                      ),
+                  color: invertColor(Theme.of(context).primaryColor)),
               child: Column(
                 children: [
                   Container(
@@ -192,23 +192,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text(
-                          "Latitude",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 16),
-                        ),
+                        Text("Latitude",
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                    color: Theme.of(context).primaryColor,
+                                    fontWeight: FontWeight.bold)),
                         SizedBox(
                           width: customSizeController.getWidth(12),
                         ),
-                        Text(
-                          "Longitude",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 16),
-                        )
+                        Text("Longitude",
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                    color: Theme.of(context).primaryColor,
+                                    fontWeight: FontWeight.bold))
                       ],
                     ),
                   ),
@@ -220,22 +220,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
-                          "${widget.lpObject.lat} ${widget.lpObject.latSign}",
-                          style:  TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 16),
-                        ),
+                            "${widget.lpObject.lat} ${widget.lpObject.latSign}",
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                    color: Theme.of(context).primaryColor)),
                         SizedBox(
                           width: customSizeController.getWidth(12),
                         ),
                         Text(
-                          "${widget.lpObject.lng} ${widget.lpObject.lngSign}",
-                          style:  TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color:Theme.of(context).primaryColor,
-                              fontSize: 16),
-                        )
+                            "${widget.lpObject.lng} ${widget.lpObject.lngSign}",
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                    color: Theme.of(context).primaryColor))
                       ],
                     ),
                   ),
@@ -246,13 +246,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               margin: EdgeInsets.only(
                   top: customSizeController.getHeight(8),
                   left: customSizeController.getWidth(24)),
-              child:  Text(
-                "Select Font Size",
-                style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: invertColor(Theme.of(context).primaryColor,),
-                    fontSize: 18),
-              ),
+              child: Text("Select Font Size",
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                      color: invertColor(Theme.of(context).primaryColor),
+                      fontWeight: FontWeight.bold)),
             ),
             SizedBox(
               width: screenWidth,
@@ -263,39 +260,30 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         top: customSizeController.getHeight(8),
                         left: customSizeController.getWidth(24)),
                     width: screenWidth * 0.25,
-                    child:  Text(
-                      "Headline",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: invertColor(Theme.of(context).primaryColor,),
-                          fontSize: 16),
-                    ),
+                    child: Text("Headline",
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            color: invertColor(Theme.of(context).primaryColor),
+                            fontWeight: FontWeight.bold)),
                   ),
                   Container(
                     margin: EdgeInsets.only(
                         top: customSizeController.getHeight(8),
                         left: customSizeController.getWidth(24)),
                     width: screenWidth * 0.25,
-                    child:  Text(
-                      "Label",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color:invertColor(Theme.of(context).primaryColor,),
-                          fontSize: 16),
-                    ),
+                    child: Text("Label",
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            color: invertColor(Theme.of(context).primaryColor),
+                            fontWeight: FontWeight.bold)),
                   ),
                   Container(
                     margin: EdgeInsets.only(
                         top: customSizeController.getHeight(8),
                         left: customSizeController.getWidth(24)),
                     width: screenWidth * 0.25,
-                    child:  Text(
-                      "Body",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color:invertColor(Theme.of(context).primaryColor,),
-                          fontSize: 16),
-                    ),
+                    child: Text("Body",
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            color: invertColor(Theme.of(context).primaryColor),
+                            fontWeight: FontWeight.bold)),
                   ),
                 ],
               ),
@@ -318,7 +306,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
@@ -326,7 +314,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           disabledBorder: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
@@ -334,7 +322,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           border: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
@@ -342,12 +330,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           filled: true,
-                          fillColor:invertColor(Theme.of(context).primaryColor),
-                          focusColor: invertColor(Theme.of(context).primaryColor),
-                          hoverColor: invertColor(Theme.of(context).primaryColor),
+                          fillColor:
+                              invertColor(Theme.of(context).primaryColor),
+                          focusColor:
+                              invertColor(Theme.of(context).primaryColor),
+                          hoverColor:
+                              invertColor(Theme.of(context).primaryColor),
                         ),
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
@@ -355,11 +346,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         itemHeight: customSizeController.getHeight(40),
                         iconSize: 24,
                         validator: (value) =>
-                        value == null ? "Select a sign" : selectedHeadlineFontSize,
+                            value == null ? "Select a sign" : null,
                         dropdownColor: Colors.white,
                         focusColor: Colors.white,
                         value: null,
-                        onChanged: ( newValue) {
+                        onChanged: (newValue) {
                           setState(() {
                             selectedHeadlineFontSize = newValue!;
                           });
@@ -380,7 +371,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
@@ -388,7 +379,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           disabledBorder: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
@@ -396,7 +387,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           border: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
@@ -404,12 +395,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           filled: true,
-                          fillColor:invertColor(Theme.of(context).primaryColor),
-                          focusColor: invertColor(Theme.of(context).primaryColor),
-                          hoverColor: invertColor(Theme.of(context).primaryColor),
+                          fillColor:
+                              invertColor(Theme.of(context).primaryColor),
+                          focusColor:
+                              invertColor(Theme.of(context).primaryColor),
+                          hoverColor:
+                              invertColor(Theme.of(context).primaryColor),
                         ),
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
@@ -417,11 +411,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         itemHeight: customSizeController.getHeight(40),
                         iconSize: 24,
                         validator: (value) =>
-                        value == null ? "Select a sign" : selectedLabelFontSize,
+                            value == null ? "Select a sign" : null,
                         dropdownColor: Colors.white,
                         focusColor: Colors.white,
                         value: null,
-                        onChanged: ( newValue) {
+                        onChanged: (newValue) {
                           setState(() {
                             selectedLabelFontSize = newValue!;
                           });
@@ -442,7 +436,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
@@ -450,7 +444,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           disabledBorder: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
@@ -458,7 +452,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           border: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
@@ -466,12 +460,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(
                                 width: 0.1,
                                 color:
-                                Theme.of(context).colorScheme.transparent),
+                                    Theme.of(context).colorScheme.transparent),
                           ),
                           filled: true,
-                          fillColor:invertColor(Theme.of(context).primaryColor),
-                          focusColor: invertColor(Theme.of(context).primaryColor),
-                          hoverColor: invertColor(Theme.of(context).primaryColor),
+                          fillColor:
+                              invertColor(Theme.of(context).primaryColor),
+                          focusColor:
+                              invertColor(Theme.of(context).primaryColor),
+                          hoverColor:
+                              invertColor(Theme.of(context).primaryColor),
                         ),
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
@@ -479,11 +476,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         itemHeight: customSizeController.getHeight(40),
                         iconSize: 24,
                         validator: (value) =>
-                        value == null ? "Select a sign" : selectedBodyFontSize,
+                            value == null ? "Select a sign" : null,
                         dropdownColor: Colors.white,
                         focusColor: Colors.white,
                         value: null,
-                        onChanged: ( newValue) {
+                        onChanged: (newValue) {
                           setState(() {
                             selectedBodyFontSize = newValue!;
                           });
@@ -497,13 +494,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               margin: EdgeInsets.only(
                   top: customSizeController.getHeight(24),
                   left: customSizeController.getWidth(24)),
-              child:  Text(
-                "Pick a Color",
-                style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: invertColor(Theme.of(context).primaryColor),
-                    fontSize: 18),
-              ),
+              child: Text("Pick a Color",
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                      color: invertColor(Theme.of(context).primaryColor),
+                      fontWeight: FontWeight.bold)),
             ),
             Container(
               margin: EdgeInsets.only(
@@ -529,7 +523,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     height: 50,
                     width: 204,
                     radius: 33,
-                    color: invertColor(Theme.of(context).primaryColor,),
+                    color: invertColor(
+                      Theme.of(context).primaryColor,
+                    ),
                     textColor: Theme.of(context).primaryColor,
                     labelText: "Submit",
                     borderColor: Colors.black,
@@ -541,14 +537,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           widget.lpObject.bodyFontSize);
                       homeScreenController.editProfile(
                           widget.lpObject.lat,
-                         widget.lpObject.lng,
+                          widget.lpObject.lng,
                           selectedColor.toString(),
                           double.parse(selectedHeadlineFontSize),
                           widget.lpObject.latSign,
                           widget.lpObject.lngSign,
                           double.parse(selectedLabelFontSize),
-                          double.parse(selectedBodyFontSize),widget.documentIndex);
-                      Get.offAll(() =>  const HomeScreen());
+                          double.parse(selectedBodyFontSize),
+                          widget.documentIndex);
+                      Get.offAll(() => const HomeScreen());
                     },
                   ),
                 );
