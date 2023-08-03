@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 
 
 class DynamicTheme with ChangeNotifier {
-  dynamic _primaryColor = Colors.grey[400];
+  dynamic _primaryColor = Colors.white;
   double headLineFontSize = 24.0;
   double labelFontSize = 18.0;
   double bodyFontSize = 16.0;

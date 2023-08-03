@@ -167,8 +167,8 @@ class _LocationScreenState extends State<LocationScreen> {
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
-                        dropdownColor: Colors.white,
-                        focusColor: Colors.white,
+                        dropdownColor: invertColor(Theme.of(context).primaryColor,),
+                        focusColor:Theme.of(context).primaryColor,
                         value: selectedLatSign,
                         onChanged: (String? newValue) {
                           setState(() {
@@ -207,7 +207,10 @@ class _LocationScreenState extends State<LocationScreen> {
                     height: customSizeController.getHeight(45),
                     width: customSizeController.getWidth(70),
                     child: DropdownButtonFormField(
+
+
                         decoration: InputDecoration(
+
                           focusedBorder: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(
                                 Radius.circular(4 * paddingRatio)),
@@ -242,6 +245,7 @@ class _LocationScreenState extends State<LocationScreen> {
                           ),
                           filled: true,
                           fillColor:invertColor(Theme.of(context).primaryColor),
+
                           focusColor: invertColor(Theme.of(context).primaryColor),
                           hoverColor: invertColor(Theme.of(context).primaryColor),
                         ),
@@ -252,8 +256,8 @@ class _LocationScreenState extends State<LocationScreen> {
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
-                        dropdownColor: Colors.white,
-                        focusColor: Colors.white,
+                        dropdownColor: invertColor(Theme.of(context).primaryColor,),
+                        focusColor:Theme.of(context).primaryColor,
                         value: selectedLngSign,
                         onChanged: (String? newValue) {
                           setState(() {

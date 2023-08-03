@@ -7,7 +7,6 @@ import 'package:klimbb/constants/typography.dart';
 import 'package:klimbb/features/components/custom_button.dart';
 import 'package:klimbb/features/components/loding_component.dart';
 import 'package:klimbb/features/home/controller/home_screen_controller.dart';
-import 'package:klimbb/features/home/screens/home_screen.dart';
 import 'package:klimbb/hive_models/location_profile.dart';
 import 'package:klimbb/main_common.dart';
 import 'package:provider/provider.dart';
@@ -347,8 +346,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
-                        dropdownColor: Colors.white,
-                        focusColor: Colors.white,
+                        dropdownColor: invertColor(Theme.of(context).primaryColor,),
+                        focusColor:Theme.of(context).primaryColor,
                         value: null,
                         onChanged: (newValue) {
                           setState(() {
@@ -412,8 +411,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
-                        dropdownColor: Colors.white,
-                        focusColor: Colors.white,
+                        dropdownColor: invertColor(Theme.of(context).primaryColor,),
+                        focusColor:Theme.of(context).primaryColor,
                         value: null,
                         onChanged: (newValue) {
                           setState(() {
@@ -477,8 +476,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
-                        dropdownColor: Colors.white,
-                        focusColor: Colors.white,
+                        dropdownColor: invertColor(Theme.of(context).primaryColor,),
+                        focusColor:Theme.of(context).primaryColor,
                         value: null,
                         onChanged: (newValue) {
                           setState(() {
@@ -545,7 +544,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           double.parse(selectedLabelFontSize),
                           double.parse(selectedBodyFontSize),
                           widget.documentIndex);
-                      Get.offAll(() => const HomeScreen());
+                      Get.back();
                     },
                   ),
                 );

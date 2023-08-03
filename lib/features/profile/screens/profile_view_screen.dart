@@ -33,27 +33,23 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
     final CustomSizeController customSizeController =
         Get.find<CustomSizeController>();
-    String mainColor =
-        widget.lpObject.color.split('(0x')[1].split(')')[0]; // kind of hacky..
-    int value = int.parse(mainColor, radix: 16);
-    Color convertedColor = Color(value);
     return Scaffold(
-      backgroundColor: convertedColor,
+      backgroundColor:Theme.of(context).primaryColor,
       appBar: AppBar(
         title: Text(
           widget.appBarTitle,
-          style: TextStyle(
-            color: convertedColor,
-            fontSize: widget.lpObject.headlineFontSize,
-          ),
+            style: Theme.of(context)
+                .textTheme
+                .headlineLarge
+                ?.copyWith(color: Theme.of(context).primaryColor)
         ),
         centerTitle: true,
-        backgroundColor: invertColor(convertedColor),
+        backgroundColor: invertColor(Theme.of(context).primaryColor,),
       ),
       body: Container(
         height: screenHeight,
         width: screenWidth,
-        color: convertedColor,
+        color: Theme.of(context).primaryColor,
         child: ListView(
           physics: const BouncingScrollPhysics(),
           children: [
@@ -67,7 +63,8 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
                   borderRadius: const BorderRadius.all(Radius.circular(
                           20.0) //                 <--- border radius here
                       ),
-                  color: invertColor(convertedColor)),
+                  color: invertColor(
+                      Theme.of(context).primaryColor)),
               height: customSizeController.getHeight(150),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -81,10 +78,12 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
                             left: customSizeController.getWidth(8)),
                         child: Text(
                           "Latitude: ",
-                          style: TextStyle(
-                              fontSize: widget.lpObject.bodyFontSize,
-                              fontWeight: FontWeight.normal,
-                              color: convertedColor),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.copyWith(
+                              color:
+                              Theme.of(context).primaryColor),
                         ),
                       ),
                       Container(
@@ -93,10 +92,12 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
                             left: customSizeController.getWidth(8)),
                         child: Text(
                           "${widget.lpObject.latSign} ${widget.lpObject.lat.toString()}",
-                          style: TextStyle(
-                              fontSize: widget.lpObject.labelFontSize,
-                              fontWeight: FontWeight.bold,
-                              color: convertedColor),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.copyWith(
+                              color:
+                              Theme.of(context).primaryColor),
                         ),
                       ),
 
@@ -114,10 +115,12 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
                             left: customSizeController.getWidth(8)),
                         child: Text(
                           "Longitude: ",
-                          style: TextStyle(
-                              fontSize: widget.lpObject.bodyFontSize,
-                              fontWeight: FontWeight.normal,
-                              color: convertedColor),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.copyWith(
+                              color:
+                              Theme.of(context).primaryColor),
                         ),
                       ),
                       Container(
@@ -126,10 +129,12 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
                             left: customSizeController.getWidth(8)),
                         child: Text(
                           "${widget.lpObject.lngSign} ${widget.lpObject.lng.toString()}",
-                          style: TextStyle(
-                              fontSize: widget.lpObject.labelFontSize,
-                              fontWeight: FontWeight.bold,
-                              color: convertedColor),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.copyWith(
+                              color:
+                              Theme.of(context).primaryColor),
                         ),
                       ),
                     ],
@@ -141,8 +146,10 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
                       height: 50,
                       width: 204,
                       radius: 33,
-                      color: convertedColor,
-                      textColor: invertColor(convertedColor),
+                      textColor: invertColor(
+                        Theme.of(context).primaryColor,
+                      ),
+                      color: Theme.of(context).primaryColor,
                       labelText: "Edit Profile",
                       borderColor: Colors.black,
                       onPressed: () {

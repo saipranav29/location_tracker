@@ -345,8 +345,8 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
-                        dropdownColor: Colors.white,
-                        focusColor: Colors.white,
+                        dropdownColor: invertColor(Theme.of(context).primaryColor,),
+                        focusColor:Theme.of(context).primaryColor,
                         value: selectedHeadlineFontSize,
                         onChanged: (String? newValue) {
                           setState(() {
@@ -407,8 +407,8 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
-                        dropdownColor: Colors.white,
-                        focusColor: Colors.white,
+                        dropdownColor: invertColor(Theme.of(context).primaryColor,),
+                        focusColor:Theme.of(context).primaryColor,
                         value: selectedLabelFontSize,
                         onChanged: (String? newValue) {
                           setState(() {
@@ -469,8 +469,8 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
-                        dropdownColor: Colors.white,
-                        focusColor: Colors.white,
+                        dropdownColor: invertColor(Theme.of(context).primaryColor,),
+                        focusColor:Theme.of(context).primaryColor,
                         value: selectedBodyFontSize,
                         onChanged: (String? newValue) {
                           setState(() {
