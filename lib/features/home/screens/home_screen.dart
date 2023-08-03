@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                 color: invertColor(
                                     Theme.of(context).primaryColor)),
-                            height: customSizeController.getHeight(160),
+                            height: customSizeController.getHeight(250),
                             child: Column(
                               children: [
                                 Container(

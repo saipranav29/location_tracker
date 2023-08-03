@@ -341,7 +341,7 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                         ),
-                        itemHeight: customSizeController.getHeight(40),
+                        itemHeight: null,
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
@@ -403,7 +403,7 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                         ),
-                        itemHeight: customSizeController.getHeight(40),
+                        itemHeight: null,
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
@@ -465,7 +465,7 @@ class _ProfileCreationScreenState extends State<ProfileCreationScreen> {
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                         ),
-                        itemHeight: customSizeController.getHeight(40),
+                        itemHeight: null,
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,

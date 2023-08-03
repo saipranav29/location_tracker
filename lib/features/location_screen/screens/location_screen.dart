@@ -163,7 +163,7 @@ class _LocationScreenState extends State<LocationScreen> {
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                         ),
-                        itemHeight: customSizeController.getHeight(40),
+                        itemHeight: null,
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
@@ -252,7 +252,7 @@ class _LocationScreenState extends State<LocationScreen> {
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                         ),
-                        itemHeight: customSizeController.getHeight(40),
+                        itemHeight: null,
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,

@@ -94,10 +94,10 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
                           "${widget.lpObject.latSign} ${widget.lpObject.lat.toString()}",
                           style: Theme.of(context)
                               .textTheme
-                              .bodyLarge
+                              .labelLarge
                               ?.copyWith(
                               color:
-                              Theme.of(context).primaryColor),
+                              Theme.of(context).primaryColor,fontWeight: FontWeight.bold),
                         ),
                       ),
 
@@ -131,10 +131,10 @@ class _ProfileViewScreenState extends State<ProfileViewScreen> {
                           "${widget.lpObject.lngSign} ${widget.lpObject.lng.toString()}",
                           style: Theme.of(context)
                               .textTheme
-                              .bodyLarge
+                              .labelLarge
                               ?.copyWith(
                               color:
-                              Theme.of(context).primaryColor),
+                              Theme.of(context).primaryColor,fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],

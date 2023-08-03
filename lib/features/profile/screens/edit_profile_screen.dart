@@ -342,7 +342,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                         ),
-                        itemHeight: customSizeController.getHeight(40),
+                        itemHeight: null,
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
@@ -407,7 +407,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                         ),
-                        itemHeight: customSizeController.getHeight(40),
+                        itemHeight: null,
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
@@ -472,7 +472,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                         ),
-                        itemHeight: customSizeController.getHeight(40),
+                        itemHeight: null,
                         iconSize: 24,
                         validator: (value) =>
                             value == null ? "Select a sign" : null,
@@ -531,9 +531,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     onPressed: () {
                       dynamicTheme.updatePrimaryColor(
                           selectedColor,
-                          widget.lpObject.headlineFontSize,
-                          widget.lpObject.labelFontSize,
-                          widget.lpObject.bodyFontSize);
+                          double.parse(selectedHeadlineFontSize),
+                          double.parse(selectedLabelFontSize),
+                        double.parse(selectedBodyFontSize),);
+
                       homeScreenController.editProfile(
                           widget.lpObject.lat,
                           widget.lpObject.lng,
