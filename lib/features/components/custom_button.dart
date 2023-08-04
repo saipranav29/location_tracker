@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:klimbb/constants/typography.dart';
 
 class CustomFlatButton extends StatelessWidget {
   final GestureTapCallback? onPressed;

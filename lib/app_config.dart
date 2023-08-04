@@ -1,11 +1,3 @@
-/*
-Description:
-    App config file to support multiple flavors in the app.
-Authors:
-    Sai Pranav Dhupati
-Created:
-    19 July, 2023
-*/
 
 import 'package:flutter/material.dart';
 
